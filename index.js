@@ -3,8 +3,8 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 const express = require('express')
-const routes = require('./routes')
 const cors = require('cors')
+const routes = require('./routes')
 const { errorHandler } = require('./middlewares')
 const { corsConfig } = require('./configs')
 
