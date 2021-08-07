@@ -1,4 +1,4 @@
-const whitelist = process.env.WHITELIST
+const whitelist = process.env.WHITELIST || 'http://localhost:8080'
 
 const whitelists = whitelist.split(',')
 
