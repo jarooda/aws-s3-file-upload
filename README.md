@@ -1,1 +1,63 @@
 # aws-s3-file-upload
+
+* **ENV**
+
+  - SECRET_KEY (for simple auth)
+  - WHITELIST (lists whitelist cors)
+  - AWS_BUCKET_NAME (aws bucket name)
+  - AWS_SECRET_KEY (aws secret key)
+  - AWS_ACCESS_KEY_ID (aws access key id)
+  - AWS_REGION (aws bucket region code)
+
+* **URL**
+
+    /v1/upload
+
+* **Method:**
+
+    `POST`
+  
+*  **URL Params**
+
+    None
+    
+*  **Headers**
+
+    `Authorization=[SECRET_KEY]`
+
+* **Data**
+
+    **Required:**
+ 
+    `img=[formdata]`
+    
+    **Optional:**
+    
+    `path=[string]` (key for bucket object)
+
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+    **Content:** 
+    ```javascript
+    { 
+        location: [string],
+        name: [string]
+    }
+    ```
+ 
+* **Error Response:**
+
+    * **Code:** 400 Bad Request <br />
+    **Content:** `{"message": "File Already Exist!"}`
+
+    OR
+
+    * **Code:** 401 Forbidden <br />
+    **Content:** `{"message": "You're Unauthorized!"}`
+
+    OR
+
+    * **Code:** 500 Internal Server Error <br />
+    **Content:** `{"message": "Internal Server Error"}`
