@@ -52,17 +52,32 @@
 * **Error Response:**
 
     * **Code:** 400 Bad Request <br />
-    **Content:** `{"message": "File Already Exist!"}`
+    **Content:**
+    ```js
+    {
+      message: "File Already Exist!"
+    }
+    ```
 
     OR
 
     * **Code:** 401 Forbidden <br />
-    **Content:** `{"message": "You're Unauthorized!"}`
+    **Content:**
+    ```js
+    {
+      message: "You're Unauthorized!"
+    }
+    ```
 
     OR
 
     * **Code:** 500 Internal Server Error <br />
-    **Content:** `{"message": "Internal Server Error"}`
+    **Content:** 
+    ```js
+    {
+      message: "Internal Server Error"
+    }
+    ```
     
     ---
 
@@ -102,9 +117,19 @@
 * **Error Response:**
 
     * **Code:** 401 Forbidden <br />
-    **Content:** `{"message": "You're Unauthorized!"}`
+    **Content:**
+    ```js
+    {
+      message: "You're Unauthorized!"
+    }
+    ```
 
     OR
 
     * **Code:** 500 Internal Server Error <br />
-    **Content:** `{"message": "Internal Server Error"}`
+    **Content:** 
+    ```js
+    {
+      message: "Internal Server Error"
+    }
+    ```
