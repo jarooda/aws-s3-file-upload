@@ -4,9 +4,9 @@ const { awsConfig: aws } = require('../configs')
 class UploadController {
   static async upload (req, res, next) {
     try {
-      const bucketPath = req.body.path || 'upload'
+      const objectPath = req.body.path || 'upload'
       const Bucket = process.env.AWS_BUCKET_NAME
-      const Key = `${bucketPath}/${req.file.originalname}`
+      const Key = `${objectPath}/${req.file.originalname}`
       const fileType = req.file.mimetype
       const s3 = new aws.S3()
 
