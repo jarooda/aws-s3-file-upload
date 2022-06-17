@@ -5,8 +5,8 @@
   - SECRET_KEY (for simple auth)
   - WHITELIST (lists whitelist cors)
   - AWS_BUCKET_NAME (aws bucket name)
-  - AWS_SECRET_KEY (aws secret key)
-  - AWS_ACCESS_KEY_ID (aws access key id)
+  - AWS_SECRET_KEY (aws Secret access key)
+  - AWS_ACCESS_KEY_ID (aws Access key ID)
   - AWS_REGION (aws bucket region code)
 
 * **URL**

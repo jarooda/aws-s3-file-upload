@@ -7,7 +7,7 @@ class UploadController {
       const bucketPath = req.body.path || 'upload'
       const Bucket = process.env.AWS_BUCKET_NAME
       const Key = `${bucketPath}/${req.file.originalname}`
-
+      const fileType = req.file.mimetype
       const s3 = new aws.S3()
 
       // Check if file exist
@@ -24,7 +24,8 @@ class UploadController {
           ACL: 'public-read',
           Body: fs.createReadStream(req.file.path),
           Bucket,
-          Key
+          Key,
+          ContentType: fileType
         }).promise()
 
         // Delete from temp folder
