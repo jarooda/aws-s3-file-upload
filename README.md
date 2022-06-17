@@ -9,6 +9,8 @@
   - AWS_ACCESS_KEY_ID (aws Access key ID)
   - AWS_REGION (aws bucket region code)
 
+---
+
 * **URL**
 
     /v1/upload
@@ -53,6 +55,51 @@
     **Content:** `{"message": "File Already Exist!"}`
 
     OR
+
+    * **Code:** 401 Forbidden <br />
+    **Content:** `{"message": "You're Unauthorized!"}`
+
+    OR
+
+    * **Code:** 500 Internal Server Error <br />
+    **Content:** `{"message": "Internal Server Error"}`
+    
+    ---
+
+* **URL**
+
+    /v1/lists
+
+* **Method:**
+
+    `GET`
+  
+*  **URL Params**
+
+    None
+    
+*  **Headers**
+
+    `Authorization=[SECRET_KEY]`
+
+* **Data**
+    
+    **Optional:**
+    
+    `path=[string]` (key for bucket object)
+
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+    **Content:** 
+    ```javascript
+    { 
+        data: [array]
+    }
+    ```
+ 
+* **Error Response:**
 
     * **Code:** 401 Forbidden <br />
     **Content:** `{"message": "You're Unauthorized!"}`
