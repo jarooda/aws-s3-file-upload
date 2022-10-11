@@ -1,3 +1,4 @@
+const { sendSuccessJSON } = require('../helpers/sendJson.js')
 const { awsConfig: aws } = require('../configs')
 
 class ListController {
@@ -22,7 +23,7 @@ class ListController {
         }
       })
 
-      res.status(200).json({
+      sendSuccessJSON(res, {
         data: lists
       })
     } catch (error) {

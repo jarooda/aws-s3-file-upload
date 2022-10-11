@@ -1,10 +1,12 @@
 const fs = require('fs')
 const { awsConfig: aws } = require('../configs')
+const { sendSuccessJSON, sendErrorJSON } = require('../helpers/sendJson.js')
+const getDate = require('../helpers/getDate.js')
 
 class UploadController {
   static async upload (req, res, next) {
     try {
-      const objectPath = req.body.path || 'upload'
+      const objectPath = req.body.path || `upload/${getDate()}`
       const Bucket = process.env.AWS_BUCKET_NAME
       const Key = `${objectPath}/${req.file.originalname}`
       const fileType = req.file.mimetype
@@ -17,7 +19,10 @@ class UploadController {
         // Delete from temp folder
         fs.unlinkSync(req.file.path)
 
-        res.status(400).json({ message: 'File Already Exist!' })
+        sendErrorJSON(res, {
+          status: 400,
+          message: 'File already exist'
+        })
       } else {
         // Upload file to S3
         const data = await s3.upload({
@@ -31,7 +36,7 @@ class UploadController {
         // Delete from temp folder
         fs.unlinkSync(req.file.path)
 
-        res.status(200).json({
+        sendSuccessJSON(res, {
           location: data.Location,
           name: req.file.originalname
         })

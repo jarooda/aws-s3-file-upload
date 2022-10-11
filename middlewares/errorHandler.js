@@ -1,7 +1,13 @@
+const { sendErrorJSON } = require('../helpers/sendJson.js')
+
 module.exports = errorHandler = (err, req, res, next) => {
+  console.log(err)
   if (err.status) {
-    res.status(err.status).json({ message: err.message })
+    sendErrorJSON(res, err)
   } else {
-    res.status(500).json({ message: 'Internal Server Error' })
+    sendErrorJSON(res, {
+      status: 500,
+      message: 'Internal Server Error'
+    })
   }
 }
